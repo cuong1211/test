@@ -74,12 +74,16 @@
 
 <body>
     <div class="main-editor">
-        <form action="{{url('/exam')}}" method="POST">
-            @csrf
-            <input type="text" name="code" class="form-control" id="fname" >
-            <button type="submit" class="btn">Run</button>
-        </form>
-        
+        @php
+            $count = 1;
+        @endphp
+        @foreach ($y as $item)
+                <a href="{{ url('single').'/'.$item->id }}">{{$item->name}}<br></a>
+                
+            @php
+                $count++;
+            @endphp
+        @endforeach
     </div>
 
     {{-- <script>

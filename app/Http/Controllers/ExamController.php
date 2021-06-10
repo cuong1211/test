@@ -10,8 +10,14 @@ use Illuminate\Support\Facades\DB;
 class ExamController extends Controller
 {
     public function getExam()
-    {
-        return view('exam');
+    {   
+        $y = exam::query()->get();
+        return view('exam', compact('y'));
+    }
+    public function getSingle($id)
+    {   
+        $y= exam::find($id);
+        return view('single', compact('y'));
     }
     public function postExam(Request $request)
     {
@@ -26,6 +32,10 @@ class ExamController extends Controller
     }
     public function createExam()
     {
-        return view('exam');
+        return view('createexam');
+    }
+    public function postcreateExam()
+    {
+        
     }
 }

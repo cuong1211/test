@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+route::get('/home', function(){
+    return view('pages.frontend.home');
+});
+route::get('/course', function(){
+    return view('pages.frontend.single');
+});
 route::get('/exam','ExamController@getExam');
+route::get('/single/{id}','ExamController@getSingle');
 route::post('/exam','ExamController@postExam');
 route::get('/createexam','ExamController@createExam');
 route::post('/createexam','ExamController@postcreateExam');
