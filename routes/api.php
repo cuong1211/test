@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+route::group(['namespace' => 'backend'], function () {
+    Route::get('/meetings', 'ZoomController@getList');
+    Route::get('/createmeetings', 'ZoomController@getCreate');
+    Route::post('/createmeetings', 'ZoomController@postCreate');
+    Route::get('/meetings/{id}', 'ZoomController@get')->where('id', '[0-9]+');
+    Route::patch('/meetings/{id}', 'ZoomController@update')->where('id', '[0-9]+');
+    Route::delete('/meetings/{id}', 'ZoomController@delete')->where('id', '[0-9]+');
+});

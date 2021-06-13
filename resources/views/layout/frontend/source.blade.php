@@ -37,7 +37,7 @@
 
 
 {{-- js --}}
-{{-- <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-select.js"></script>
@@ -57,4 +57,4 @@
 <script type="text/javascript" src="js/jquery.dlmenu.js"></script>
 <script type="text/javascript" src="js/js-functions.js"></script>
 <script type="text/javascript" src="js/flicker.js"></script>
-<script type="text/javascript" src="js/rev_slider.js"></script> --}}
+<script type="text/javascript" src="js/rev_slider.js"></script>

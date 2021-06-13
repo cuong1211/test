@@ -13,14 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::get('/home', function(){
-    return view('pages.frontend.home');
+Route::group(['namespace' => 'frontend'], function () {
+    Route::get('/home', 'FrontendController@getHome');
+    Route::get('/course', 'FrontendController@getCourse');
 });
-route::get('/course', function(){
-    return view('pages.frontend.single');
+
+
+route::group(['namespace' => 'backend'], function () {
+    route::get('/admin', 'BackendController@getHome');
+    
 });
-route::get('/exam','ExamController@getExam');
-route::get('/single/{id}','ExamController@getSingle');
-route::post('/exam','ExamController@postExam');
-route::get('/createexam','ExamController@createExam');
-route::post('/createexam','ExamController@postcreateExam');
+
+// route::get('/exam','ExamController@getExam');
+// route::get('/single/{id}','ExamController@getSingle');
+// route::post('/exam','ExamController@postExam');
+// route::get('/createexam','ExamController@createExam');
+// route::post('/createexam','ExamController@postcreateExam');
