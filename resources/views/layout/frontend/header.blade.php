@@ -93,7 +93,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a class="trigger" href="#">Courses <i class="fa fa-angle-down"></i></a>
+                            <li><a class="trigger" href="{{url('/course')}}">Courses <i class="fa fa-angle-down"></i></a>
                                 <ul class="submenu">
                                     <li><a href="course_grid.html">Course
                                             Grid</a></li>
