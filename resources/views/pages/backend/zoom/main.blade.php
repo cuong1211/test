@@ -41,8 +41,12 @@
                                 <td>{{$item['type']}}</td>
                                 <td>{{$item['start_time']}}
                                 <td>
-                                    <span class="table-remove"><button type="button"
+                                 <form action="{{ url('api/meetings').'/'.$item['id'] }}" method="post">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                   <button type="submit"
                                             class="btn iq-bg-danger btn-rounded btn-sm my-0">Remove</button></span>
+                                </form>
                                 </td>
                                 <td>{{$item['id']}}</td>
                             </tr>
