@@ -18,7 +18,7 @@ class CreateKhoaHocTable extends Migration
             $table->string('Ten Khoa Hoc')->nullable();
             $table->text('Mo Ta')->nullable();
             $table->integer('Thoi Gian')->nullable();
-            $table->timestamps();
+           
         });
     }
 
