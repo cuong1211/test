@@ -16,13 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'frontend'], function () {
     Route::get('/home', 'FrontendController@getHome');
     Route::get('/course', 'FrontendController@getCourse');
+    
 });
 
 
 route::group(['namespace' => 'backend'], function () {
     route::get('/admin', 'BackendController@getHome');
     
+    
 });
+
 
 // route::get('/exam','ExamController@getExam');
 // route::get('/single/{id}','ExamController@getSingle');
