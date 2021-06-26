@@ -4,12 +4,13 @@ namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LopHoc extends Model
+class course extends Model
 {
-    protected $table = 'LopHoc';
+    protected $table = 'course';
 
     protected $fillable = [
-      'Ten lop',
-      'Khoa hoc'
+      'name',
+      'start_time',
     ];
+    
 }

@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'frontend'], function () {
     Route::get('/home', 'FrontendController@getHome');
-    Route::get('/course', 'FrontendController@getCourse');
+    Route::get('/unit/{id}', 'FrontendController@getUnit');
+    route::get('/lecture','FrontendController@getLesson');
     
 });
 
 
 route::group(['namespace' => 'backend'], function () {
     route::get('/admin', 'BackendController@getHome');
+    route::get('/lesson', 'BackendController@getLesson');
+    route::get('/createlesson', 'BackendController@getcreateLesson');
+    route::post('/createlesson', 'BackendController@createLesson');
+    route::post('/addcourse/{id}', 'BackendController@addCourse');
+    
     
     
 });

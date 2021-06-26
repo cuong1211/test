@@ -4,7 +4,7 @@
     @include('layout.frontend.source')
 </head>
 
-<body id="home" class="cms_index">
+<body id="home" class="cms_course cms_course_list">
     {{-- header --}}
     @include('layout.frontend.header')
     {{-- body --}}
