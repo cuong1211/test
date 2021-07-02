@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSinhVienTable extends Migration
+class CreateCourseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateSinhVienTable extends Migration
      */
     public function up()
     {
-        Schema::create('_sinh_vien', function (Blueprint $table) {
+        Schema::create('course', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('start_time')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateSinhVienTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_sinh_vien');
+        Schema::dropIfExists('course');
     }
 }

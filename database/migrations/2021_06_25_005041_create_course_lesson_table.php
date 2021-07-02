@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKhoaHocTable extends Migration
+class CreateCourseLessonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateKhoaHocTable extends Migration
      */
     public function up()
     {
-        Schema::create('_khoa_hoc', function (Blueprint $table) {
+        Schema::create('course_lesson', function (Blueprint $table) {
             $table->id();
-            $table->string('Ten Khoa Hoc')->nullable();
-            $table->text('Mo Ta')->nullable();
-            $table->integer('Thoi Gian')->nullable();
-           
+            $table->integer('course_id')->nullable();
+            $table->integer('lesson_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateKhoaHocTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_khoa_hoc');
+        Schema::dropIfExists('course_lesson');
     }
 }

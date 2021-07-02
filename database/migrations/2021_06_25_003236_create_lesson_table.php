@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLopHocTable extends Migration
+class CreateLessonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateLopHocTable extends Migration
      */
     public function up()
     {
-        Schema::create('_lop_hoc', function (Blueprint $table) {
+        Schema::create('lesson', function (Blueprint $table) {
             $table->id();
-            $table->string('Ten Lop')->nullable();
-            $table->text('KhoaHoc_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('course_id')->nullable();
             $table->timestamps();
-
         });
     }
 
@@ -29,6 +28,6 @@ class CreateLopHocTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_lop_hoc');
+        Schema::dropIfExists('lesson');
     }
 }
