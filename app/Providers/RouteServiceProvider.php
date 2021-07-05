@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapNinhRoutes();
+
         //
     }
 
@@ -76,5 +78,10 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+    protected function mapNinhRoutes(){
+        Route::prefix('ninh')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/n-web.php'));
     }
 }
