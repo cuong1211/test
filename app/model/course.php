@@ -12,7 +12,8 @@ class course extends Model
       'name',
       'start_time',
       'cuo ng',
-      'ninh'
+      'ninh',
+      'avc'
     ];
     
 }
