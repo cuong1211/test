@@ -27,7 +27,7 @@ route::group(['namespace' => 'backend'], function () {
     route::get('/createlesson', 'BackendController@getcreateLesson');
     route::post('/createlesson', 'BackendController@createLesson');
     route::post('/addcourse/{id}', 'BackendController@addCourse');
-    route::get('/ninh1',function(){
+    route::get('/cuong',function(){
         return 'ninh dep trai';
     }     
 );
