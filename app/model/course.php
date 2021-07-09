@@ -11,6 +11,7 @@ class course extends Model
     protected $fillable = [
       'name',
       'start_time',
+      'ninh'
     ];
     
 }
