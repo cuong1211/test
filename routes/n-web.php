@@ -22,12 +22,15 @@ Route::group(['namespace' => 'frontend'], function () {
 
 
 route::group(['namespace' => 'backend'], function () {
-    route::get('/admin', 'BackendController@getHome');
+    route::get('/ninh', 'BackendController@getHome');
     route::get('/lesson', 'BackendController@getLesson');
     route::get('/createlesson', 'BackendController@getcreateLesson');
     route::post('/createlesson', 'BackendController@createLesson');
     route::post('/addcourse/{id}', 'BackendController@addCourse');
-    
+    route::get('/ninh1',function(){
+        return 'ninh dep trai';
+    }     
+);
 });
 
 
