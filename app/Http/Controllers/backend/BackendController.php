@@ -35,6 +35,7 @@ class BackendController extends Controller
         $lesson = lesson::find($id)->course()->sync($request->course);
         return redirect('lesson');
     }
+    public function addLecture(request $request, $id){
     public function addNinh(request $request, $id){
         $lesson = lesson::find($id)->course()->sync($request->course);
         return redirect('lesson');
