@@ -4,7 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\model\lesson;
+use App\model\Lesson;
 
 class FrontendController extends Controller
 {
@@ -12,11 +12,11 @@ class FrontendController extends Controller
         return view('pages.frontend.home');
     }
     public function getUnit($id){
-        $lesson = lesson::find($id);
+        $lesson = Lesson::find($id);
         return view('pages.frontend.unit');
     }
     public function getLesson(){
-        $lesson = lesson::query()->get();
+        $lesson = Lesson::query()->get();
         return view('pages.frontend.lesson',compact('lesson'));
     }
 }

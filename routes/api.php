@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 route::group(['namespace' => 'backend'], function () {
     Route::get('/meetings', 'ZoomController@getList');
+    Route::get('/zoom', 'ZoomController@getZoom');
     Route::get('/createmeetings', 'ZoomController@getCreate');
     Route::post('/createmeetings', 'ZoomController@postCreate');
     Route::get('/meetings/{id}', 'ZoomController@get')->where('id', '[0-9]+');

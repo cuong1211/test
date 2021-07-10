@@ -22,16 +22,44 @@
                 <ul id="iq-sidebar-toggle" class="iq-menu">
 
                     <li>
-                        <a href="{{ url('/admin') }}" class="iq-waves-effect" aria-expanded="false"><span
+                        <a href="{{ url('/lesson') }}" class="iq-waves-effect" aria-expanded="false"><span
                                 class="ripple rippleEffect"></span><i
-                                class="las la-user-tie iq-arrow-left"></i><span>Product</span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Lesson</span><i
                                 class="ri-arrow-right-s-line iq-arrow-right"></i></a>
 
                     </li>
                     <li>
-                        <a href="{{ url('/img') }}" class="iq-waves-effect" aria-expanded="false"><span
+                        <a href="{{ url('/unit') }}" class="iq-waves-effect" aria-expanded="false"><span
                                 class="ripple rippleEffect"></span><i
-                                class="las la-user-tie iq-arrow-left"></i><span>file manager</span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Unit</span><i
+                                class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                    </li>
+                    <li>
+                        <a href="{{ url('/h5p') }}" class="iq-waves-effect" aria-expanded="false"><span
+                                class="ripple rippleEffect"></span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>H5p</span><i
+                                class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                    </li>
+                    <li>
+                        <a href="{{ url('/homework') }}" class="iq-waves-effect" aria-expanded="false"><span
+                                class="ripple rippleEffect"></span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Homework</span><i
+                                class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                    </li>
+                    <li>
+                        <a href="{{ url('/test') }}" class="iq-waves-effect" aria-expanded="false"><span
+                                class="ripple rippleEffect"></span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Test</span><i
+                                class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                    </li>
+                    <li>
+                        <a href="{{ url('/api/zoom') }}" class="iq-waves-effect" aria-expanded="false"><span
+                                class="ripple rippleEffect"></span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Zoom</span><i
                                 class="ri-arrow-right-s-line iq-arrow-right"></i></a>
 
                     </li>

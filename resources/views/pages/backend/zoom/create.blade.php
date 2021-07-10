@@ -9,6 +9,24 @@
     <div class="iq-card-body">
        <form class="form-horizontal" action="{{url('/api/createmeetings')}}" method="POST">
          @csrf
+         <div class="form-group row">
+            <label class="control-label col-sm-2 align-self-center mb-0" for="pwd1">Course ID</label>
+            <div class="col-sm-10">
+               <input type="number" name="course_id" class="form-control" id="pwd1" placeholder="Enter type">
+            </div>
+         </div>
+         <div class="form-group row">
+            <label class="control-label col-sm-2 align-self-center mb-0" for="pwd1">Lesson ID</label>
+            <div class="col-sm-10">
+               <input type="number" name="lesson_id" class="form-control" id="pwd1" placeholder="Enter type">
+            </div>
+         </div>
+         <div class="form-group row">
+            <label class="control-label col-sm-2 align-self-center mb-0" for="pwd1">Unit ID</label>
+            <div class="col-sm-10">
+               <input type="number" name="unit_id" class="form-control" id="pwd1" placeholder="Enter type">
+            </div>
+         </div>
           <div class="form-group row">
              <label class="control-label col-sm-2 align-self-center mb-0" for="email">Tên phòng</label>
              <div class="col-sm-10">
@@ -18,7 +36,7 @@
           <div class="form-group row">
              <label class="control-label col-sm-2 align-self-center mb-0" for="pwd1">Loại phòng</label>
              <div class="col-sm-10">
-                <input type="number" class="form-control" id="pwd1" placeholder="Enter type">
+                <input type="number" name="type" class="form-control" id="pwd1" placeholder="Enter type">
              </div>
           </div>
           <div class="form-group">
