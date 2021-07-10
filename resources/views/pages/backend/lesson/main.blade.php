@@ -25,6 +25,7 @@
                             <th>ten</th>
                             <th>khoa hoc</th>
                             <th>Thời gian</th>
+                            <th>phong zoom</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,9 +38,7 @@
                             <tr>
                                 <td>{{$count}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>@foreach ($item->course as $it)
-                                    - {{$it->name}} <br>
-                                @endforeach</td>
+                                <td>{{$item->course->name}}</td>
                                 
                                 {{-- <td>
                                  <form action="{{ url('api/meetings').'/'.$item['id'] }}" method="post">

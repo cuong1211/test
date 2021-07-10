@@ -4,16 +4,18 @@ namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class course extends Model
+class Course extends Model
 {
     protected $table = 'course';
 
     protected $fillable = [
       'name',
       'start_time',
-      'cuo ng',
-      'ninh',
-      'avc'
+      
     ];
+    public function lesson()
+    {
+      return $this->hasMany('App\model\Lesson','course_id','id');
+    }
     
 }

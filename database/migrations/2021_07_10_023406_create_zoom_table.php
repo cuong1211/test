@@ -14,7 +14,10 @@ class CreateZoomTable extends Migration
     public function up()
     {
         Schema::create('zoom', function (Blueprint $table) {
-            $table->string('id')->nullable();
+            $table->id();
+            $table->string('course_id');
+            $table->string('lesson_id');
+            $table->string('unit_id');
             $table->string('topic')->nullable();
             $table->string('type')->nullable();
             $table->string('join_url')->nullable();

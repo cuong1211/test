@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Traits\ZoomJWT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\model\zoom;
+use App\model\Zoom;
 
 
 class ZoomController extends Controller
@@ -35,9 +35,13 @@ class ZoomController extends Controller
         //     'success' => $response->ok(),
         //     'data' => $data,
         // ];
-        return view('pages.backend.zoom.main', compact('x'));
+        
 
         
+    }
+    public function getZoom(){
+        $zoom = Zoom::query()->get();
+        return view('pages.backend.zoom.main',compact('zoom'));
     }
 
     public function getCreate()
@@ -74,7 +78,10 @@ class ZoomController extends Controller
                 'waiting_room' => true,
             ]
         ])->body(),true);
-            $zoom = zoom::create([
+            $zoom = Zoom::create([
+                'course_id' => $request->course_id,
+                'lesson_id' => $request->lesson_id,
+                'unit_id' => $request->unit_id,
                 'id' => $response['id'],
                 'topic' => $response['topic'],
                 'type' => $response['type'],
@@ -88,7 +95,7 @@ class ZoomController extends Controller
         //     'success' => $response->status() === 201,
         //     'data' => json_decode($response->body(), true),
         // ];
-        return redirect('api/meetings');
+        return redirect('api/zoom');
     }
     public function get(Request $request, string $id)
     {
@@ -143,7 +150,7 @@ class ZoomController extends Controller
     }
     public function delete(Request $request, string $id)
     {   
-        $zoom = zoom::find($id)->delete();
+        $zoom = Zoom::find($id)->delete();
         $path = 'meetings/' . $id;
         $response = $this->zoomDelete($path);
 
@@ -151,6 +158,6 @@ class ZoomController extends Controller
         //     'success' => $response->status() === 204,
         //     'data' => json_decode($response->body(), true),
         // ];
-        return redirect('api/meetings');
+        return redirect('api/zoom');
     }
 }

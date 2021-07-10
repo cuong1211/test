@@ -4,7 +4,7 @@ namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class lesson extends Model
+class Lesson extends Model
 {
     protected $table = 'lesson';
 
@@ -14,6 +14,9 @@ class lesson extends Model
     ];
     public function course()
     {
-      return $this->belongsToMany('App\model\course','course_lesson','course_id','lesson_id');
+      return $this->belongsTo('App\model\Course','course_id');
+    }
+    public function unit(){
+      return $this->hasOne('App\model\Unit');
     }
 }
