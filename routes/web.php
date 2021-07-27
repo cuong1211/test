@@ -23,7 +23,7 @@ Route::group(['namespace' => 'frontend'], function () {
 
 
 route::group(['namespace' => 'backend'], function () {
-    route::get('/admin', 'BackendController@getHome');
+    route::get('/admin', 'LessonController@getHome');
     //lesson
     route::get('/lesson', 'LessonController@getLesson');
     route::get('/createlesson', 'LessonController@getcreateLesson');

@@ -63,6 +63,13 @@
                                 class="ri-arrow-right-s-line iq-arrow-right"></i></a>
 
                     </li>
+                    <li>
+                        <a href="{{ url('/api/zoomsupport') }}" class="iq-waves-effect" aria-expanded="false"><span
+                                class="ripple rippleEffect"></span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Zoom Support</span><i
+                                class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                    </li>
 
 
 
