@@ -7,6 +7,7 @@ use App\Traits\ZoomJWT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\model\Zoom;
+use Illuminate\Support\Facades\Http;
 
 
 class ZoomController extends Controller
@@ -35,13 +36,14 @@ class ZoomController extends Controller
         //     'success' => $response->ok(),
         //     'data' => $data,
         // ];
-        
 
-        
+
+
     }
-    public function getZoom(){
+    public function getZoom()
+    {
         $zoom = Zoom::query()->get();
-        return view('pages.backend.zoom.main',compact('zoom'));
+        return view('pages.backend.zoom.main', compact('zoom'));
     }
 
     public function getCreate()
@@ -75,27 +77,45 @@ class ZoomController extends Controller
             'settings' => [
                 'host_video' => false,
                 'participant_video' => false,
-                'waiting_room' => true,
+                'waiting_room' => false,
             ]
-        ])->body(),true);
-            $zoom = Zoom::create([
-                'course_id' => $request->course_id,
-                'lesson_id' => $request->lesson_id,
-                'unit_id' => $request->unit_id,
-                'id' => $response['id'],
-                'topic' => $response['topic'],
-                'type' => $response['type'],
-                'join_url' => $response['join_url'],
-                'start_time' => $response['start_time'],
-            ]); // add $data here
-            $zoom->save();
+        ])->body(), true);
+        $zoom = Zoom::create([
+            'course_id' => $request->course_id,
+            'lesson_id' => $request->lesson_id,
+            'unit_id' => $request->unit_id,
+            'id' => $response['id'],
+            'topic' => $response['topic'],
+            'type' => $response['type'],
+            'join_url' => $response['join_url'],
+            'start_time' => $response['start_time'],
+        ]); // add $data here
+        $zoom->save();
 
-
+        
         // return [
         //     'success' => $response->status() === 201,
         //     'data' => json_decode($response->body(), true),
         // ];
-        return redirect('api/zoom');
+        if($zoom){
+            return Http::post('https://discord.com/api/webhooks/867115875223339018/6-dOATPAv7FpCDGurqHLTo3tvOLnhFODk67pmNLDGoStTjMUjnac6T4KsswPSrC48Hda', [
+                'content' => "có học sinh  {$response['id']} cần trợ giúp",
+                
+                'embeds' => [
+                    [
+                        'title' =>$response['topic'],
+                        'description' => $response['start_time'],
+                        'url' => $response['join_url'],
+                        'author' => [
+                            'name' => 'link zoom',
+                        ],
+                        'color' => '7506394',
+                    ]
+                ],
+            ]);
+            // return redirect('api/zoom');
+        }
+        return redirect('api/zoom')->with('error','Have trouble, Try again later.');
     }
     public function get(Request $request, string $id)
     {
@@ -149,7 +169,7 @@ class ZoomController extends Controller
         ];
     }
     public function delete(Request $request, string $id)
-    {   
+    {
         $zoom = Zoom::find($id)->delete();
         $path = 'meetings/' . $id;
         $response = $this->zoomDelete($path);

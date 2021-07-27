@@ -22,4 +22,14 @@ class Unit extends Model
     public function zoom(){
         return $this->hasOne('App\model\Zoom','unit_id');
     }
+    public function test(){
+        return $this->hasOne('App\model\Test','unit_id');
+    }
+    public function homework(){
+        return $this->HasMany('App\model\Homework','unit_id','homework_id');
+    }
+    public function exam(){
+        return $this->HasMany('App\model\Exam','unit_id','exam_id');
+    }
+
 }

@@ -12,4 +12,7 @@ class Test extends Model
       'title',
       'question_id',
     ];
+    public function unit(){
+      return $this->belongsTo('App\model\Unit');
+    }
 }
