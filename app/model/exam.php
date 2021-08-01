@@ -11,6 +11,9 @@ class Exam extends Model
     protected $fillable = [
       'name',
       'answer'
-      
+
     ];
+    public function unit(){
+        return $this->belongsTo('App\model\Unit');
+    }
 }

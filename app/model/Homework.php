@@ -14,4 +14,7 @@ class Homework extends Model
       'lesson_id',
       'excel',
     ];
+    public function unit(){
+        return $this->belongsTo('App\model\Unit');
+    }
 }

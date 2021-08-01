@@ -24,7 +24,7 @@ class ZoomController extends Controller
     {
         $path = 'users/me/meetings';
         $response = $this->zoomGet($path);
-      
+
         $data = json_decode($response->body(), true);
         $data['meetings'] = array_map(function (&$m) {
             $m['start_at'] = $this->toUnixTimeStamp($m['start_time'], $m['timezone']);
@@ -95,35 +95,34 @@ class ZoomController extends Controller
             'join_url' => $response['join_url'],
             'start_time' => $response['start_time'],
         ]); // add $data here
-        $zoom->save();
 
-        
+
         // return [
         //     'success' => $response->status() === 201,
         //     'data' => json_decode($response->body(), true),
         // ];
         // dd($zoom);
-        return redirect('/');
-       
-        Http::post('https://discord.com/api/webhooks/867285596090007554/HSyaCb-3GZxjjqZ7ox3wNwcfFBlJ2v9i_BBVriSvMsoXOy9WRLLMNWq172YzVgFoTHJl', [
-            'content' => "Có học sinh cần hỗ trợ ",
-            'embeds' => [
-                [
-                    'title' => "{$request->topic}",
-                    'url' => $response['join_url'],
-                    'description' => "{$request->type}",
-                    'color' => '7506394',
-                    'author' => [
-                        'name'=> "{$request->id}",
-                    ]
-                ]
-            ],
-        ]);
-        // return redirect('api/zoom');
-        
-     
+        // return redirect('/');
 
-    
+        // Http::post('https://discord.com/api/webhooks/867285596090007554/HSyaCb-3GZxjjqZ7ox3wNwcfFBlJ2v9i_BBVriSvMsoXOy9WRLLMNWq172YzVgFoTHJl', [
+        //     'content' => "Có học sinh cần hỗ trợ ",
+        //     'embeds' => [
+        //         [
+        //             'title' => "{$request->topic}",
+        //             'url' => $response['join_url'],
+        //             'description' => "{$request->type}",
+        //             'color' => '7506394',
+        //             'author' => [
+        //                 'name'=> "{$request->id}",
+        //             ]
+        //         ]
+        //     ],
+        // ]);
+        return redirect('api/zoom');
+
+
+
+
     }
     public function getCreatesupport()
     {
@@ -159,9 +158,9 @@ class ZoomController extends Controller
                 'waiting_room' => true,
             ]
         ])->body(),true);
-      
+
             $zoomsupport = ZoomSupport::create([
-               
+
                 'id' => $response['id'],
                 'topic' => $response['topic'],
                 'class' => $request->class,
@@ -169,7 +168,7 @@ class ZoomController extends Controller
                 'join_url' => $response['join_url'],
                 'start_time' => $response['start_time'],
             ]); // add $data here
-            
+
             $zoomsupport->save();
 
 
@@ -178,8 +177,8 @@ class ZoomController extends Controller
         //     'data' => json_decode($response->body(), true),
         // ];
         // dd($zoom);
-        
-       
+
+
          Http::post('https://discord.com/api/webhooks/867285596090007554/HSyaCb-3GZxjjqZ7ox3wNwcfFBlJ2v9i_BBVriSvMsoXOy9WRLLMNWq172YzVgFoTHJl', [
             'content' => "Đồng chí {$request->topic} cần hỗ trợ các đồng chí",
             'embeds' => [
@@ -190,15 +189,19 @@ class ZoomController extends Controller
                     'color' => '7506394',
                     'author' => [
                         'name'=> "There is no shortcut to become Hokage!",
-                    ]
+                    ],
+                    'footer' => [
+                        'text'=>'dc gui tu he thong',
+                    ],
+                    "timestamp" => $response['start_time'],
                 ]
             ],
         ]);
         return redirect('api/zoomsupport');
-        
-     
 
-    
+
+
+
     }
     public function get(Request $request, string $id)
     {
@@ -264,7 +267,7 @@ class ZoomController extends Controller
         return redirect('api/zoom');
     }
     public function deleteSupport(Request $request, string $id)
-    {   
+    {
         $zoomsupport = ZoomSupport::find($id)->delete();
         $path = 'meetingsupport/' . $id;
         $response = $this->zoomDelete($path);

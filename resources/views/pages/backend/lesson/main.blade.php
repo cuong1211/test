@@ -32,14 +32,14 @@
                     <tbody>
                         @php
                         $count = 1;
-                        
-                        @endphp 
+
+                        @endphp
                         @foreach ($lesson as $item)
                             <tr>
                                 <td>{{$count}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->course->name}}</td>
-                                
+
                                 {{-- <td>
                                  <form action="{{ url('api/meetings').'/'.$item['id'] }}" method="post">
                                     @csrf
@@ -48,11 +48,11 @@
                                             class="btn iq-bg-danger btn-rounded btn-sm my-0">Remove</button></span>
                                 </form>
                                 </td> --}}
-                                
+
                             </tr>
                             @php
-                                $count++; 
-                            @endphp 
+                                $count++;
+                            @endphp
                         @endforeach
                     </tbody>
                 </table>
