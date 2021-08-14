@@ -21,4 +21,11 @@ class Zoom extends Model
     public function unit(){
         return $this->belongsTo('App\model\Unit');
     }
+    public function lesson(){
+        return $this->belongsTo('App\model\Lesson');
+    }
+    public function course()
+    {
+      return $this->belongsTo('App\model\Course','course_id');
+    }
 }

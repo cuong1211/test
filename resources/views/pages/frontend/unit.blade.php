@@ -30,8 +30,8 @@
 
                     <div class="dtl_inner last">
                         <div class="dtl_head">
-                            <h1>JAVA </h1>
-                            <a type="button"  class="btn btn-primary">vào lớp</a>
+                            <h1>{{$a['name']}} </h1>
+                            <a type="button" href="{{$b['join_url']}}" class="btn btn-primary">vào lớp</a>
                         </div>
                         <div class="dtl_block">
                             <div class="detail_text_wrap">
@@ -949,7 +949,7 @@
     </div>
 
 
-    
+
 
 </div>
 @endsection

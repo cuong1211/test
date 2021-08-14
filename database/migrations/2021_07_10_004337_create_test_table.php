@@ -17,6 +17,7 @@ class CreateTestTable extends Migration
             $table->id();
             $table->string('course_id')->nullable();
             $table->string('lesson_id')->nullable();
+            $table->string('unit_id')->nullable();
             $table->string('title')->nullable();
             $table->string('question_id')->nullable();
             $table->timestamps();

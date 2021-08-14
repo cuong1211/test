@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use App\model\Zoom;
 use App\model\ZoomSupport;
 use Illuminate\Support\Facades\Http;
+use App\model\Lesson;
+use App\model\Course;
 
 
 class ZoomController extends Controller
@@ -43,8 +45,10 @@ class ZoomController extends Controller
     }
     public function getZoom()
     {
-        $zoom = Zoom::query()->get();
-        return view('pages.backend.zoom.main', compact('zoom'));
+        $zoom = Zoom::query()->with('course','lesson')->get();
+        $course = Course::query()->get();
+        $lesson = Lesson::query()->get();
+        return view('pages.backend.zoom.main', compact('zoom','course','lesson'));
     }
     public function getZoomSupport(){
         $zoomsupport = ZoomSupport::query()->get();
@@ -53,7 +57,9 @@ class ZoomController extends Controller
 
     public function getCreate()
     {
-        return view('pages.backend.zoom.create');
+        $course = Course::query()->latest()->get();
+        $lesson = Lesson::query()->get();
+        return view('pages.backend.zoom.create',compact('course','lesson'));
     }
 
     public function postCreate(Request $request)

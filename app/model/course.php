@@ -11,11 +11,15 @@ class Course extends Model
     protected $fillable = [
       'name',
       'start_time',
-      
+
     ];
     public function lesson()
     {
       return $this->hasMany('App\model\Lesson','course_id','id');
     }
-    
+    public function zoom()
+    {
+      return $this->hasMany('App\model\Zoom','course_id','id');
+    }
+
 }

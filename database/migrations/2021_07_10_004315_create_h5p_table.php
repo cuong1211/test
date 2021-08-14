@@ -18,6 +18,7 @@ class CreateH5pTable extends Migration
             $table->string('title')->nullable();
             $table->string('course_id')->nullable();
             $table->string('lesson_id')->nullable();
+            $table->string('unit_id')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();
         });

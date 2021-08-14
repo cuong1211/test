@@ -35,14 +35,16 @@
                                 <tbody>
                                     @php
                                         $count = 1;
-                                        
+
                                     @endphp
                                     @foreach ($zoom as $item)
                                         <tr>
                                             <td>{{ $count }}</td>
                                             <td>{{ $item->topic }}</td>
                                             <td>{{ $item->type }}</td>
-                                            <td>{{ $item->start_time }}
+                                            <td>{{ $item->start_time }}</td>
+                                            <td>{{ $item->course->name}}</td>
+                                            <td>{{ $item->lesson->name}}</td>
                                             <td><a class="btn btn-primary" href="{{$item->join_url}}" role="button">Link</a></td>
                                             <td>
                                                 <form action="{{ url('api/meetings') . '/' . $item['id'] }}"

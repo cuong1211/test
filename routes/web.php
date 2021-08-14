@@ -62,11 +62,11 @@ route::group(['namespace' => 'backend'], function () {
 
 
     route::get('/lienket', function(){
-        $data=App\model\Unit::find(1)->test()->get();
+        $data=App\model\Zoom::find(1)->lesson()->get();
         dd($data);
     });
     route::get('/lienket2', function(){
-        $data=App\model\Test::find(1)->unit()->get();
+        $data=App\model\Unit::find(1)->zoom()->get();
         dd($data);
     });
 });

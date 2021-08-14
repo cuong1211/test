@@ -19,4 +19,7 @@ class Lesson extends Model
     public function unit(){
       return $this->hasOne('App\model\Unit');
     }
+    public function zoom(){
+        return $this->hasOne('App\model\Zoom');
+      }
 }
