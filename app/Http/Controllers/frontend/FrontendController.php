@@ -14,10 +14,10 @@ class FrontendController extends Controller
     }
     public function getUnit($id){
         $lesson = json_decode(Lesson::with('zoom')->get());
-        // foreach($lesson as $item=>$lesson){
-        //     $a = json_decode($lesson::find($id),true);
-        //     $b = json_decode($lesson['zoom']::find($id),true);
-        // }
+        foreach($lesson as $item=>$lesson){
+            $a = json_decode($lesson::find($id),true);
+            $b = json_decode($lesson['zoom']::find($id),true);
+        }
         dd($lesson);
         // dd($a);
         return view('pages.frontend.unit',compact('a','b'));
