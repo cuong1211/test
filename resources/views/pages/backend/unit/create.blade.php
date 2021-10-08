@@ -3,25 +3,35 @@
 <div class="iq-card">
     <div class="iq-card-header d-flex justify-content-between">
        <div class="iq-header-title">
-          <h4 class="card-title">Create Lesson</h4>
+          <h4 class="card-title">Create unit</h4>
        </div>
     </div>
     <div class="iq-card-body">
-       <form class="form-horizontal" action="{{url('/createlesson')}}" method="POST">
+       <form class="form-horizontal" action="{{url('/createunit')}}" method="POST">
          @csrf
           <div class="form-group row">
              <label class="control-label col-sm-2 align-self-center mb-0" for="email">Tên bai:</label>
              <div class="col-sm-10">
-                <input type="text" name="name" class="form-control" id="email" placeholder="Enter name">
+                <input type="text" name="title" class="form-control" id="email" placeholder="Enter name">
              </div>
           </div>
-          {{-- <div class="form-group row">
-             <label class="control-label col-sm-2 align-self-center mb-0" for="pwd1">Loại phòng</label>
-             <div class="col-sm-10">
-                <input type="number" class="form-control" id="pwd1" placeholder="Enter type">
-             </div>
-          </div>
-          <div class="form-group">
+          <div class="form-group col-sm-6">
+            <label for="uname">phong zoom:</label>
+            <select class="form-control" name="zoom_id" id="email">
+                @foreach ($zoom as $item)
+                    <option value="{{ $item->id }}">{{ $item->topic }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="uname">Slide:</label>
+            <select class="form-control" name="slide_id" id="email">
+                @foreach ($slide as $item)
+                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                @endforeach
+            </select>
+        </div>
+          {{-- <div class="form-group">
             <label for="exampleInputdatetime">Thời gian bắt đầu</label>
             <input type="datetime-local" name="start_time" class="form-control" id="exampleInputdatetime" >
          </div> --}}

@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 route::group(['namespace' => 'backend'], function () {
     Route::get('/meetings', 'ZoomController@getList');
     Route::get('/zoom', 'ZoomController@getZoom');
+    route::post('/addcourse/{id}', 'ZoomController@addCourse');
+    route::post('/addlesson/{id}', 'ZoomController@addLesson');
     Route::get('/zoomsupport', 'ZoomController@getZoomSupport');
     Route::get('/createmeetings', 'ZoomController@getCreate');
     Route::post('/createmeetings', 'ZoomController@postCreate');

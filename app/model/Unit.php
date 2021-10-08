@@ -10,17 +10,21 @@ class Unit extends Model
 
     protected $fillable = [
       'title',
-      'lesson_id',
+      'course_id',
       'zoom_id',
-      'h5p_id',
+      'slide_id',
       'homework_id',
       'test_id',
     ];
-    public function lesson(){
-        return $this->belongsTo('App\model\Lesson');
+    public function course()
+    {
+      return $this->belongsTo('App\model\Course','course_id');
     }
     public function zoom(){
-        return $this->hasOne('App\model\Zoom','unit_id');
+        return $this->belongsTo('App\model\Zoom');
+    }
+    public function slide(){
+        return $this->belongsTo('App\model\Slide');
     }
     public function test(){
         return $this->hasOne('App\model\Test','unit_id');
@@ -31,5 +35,4 @@ class Unit extends Model
     public function exam(){
         return $this->HasMany('App\model\Exam','unit_id','exam_id');
     }
-
 }

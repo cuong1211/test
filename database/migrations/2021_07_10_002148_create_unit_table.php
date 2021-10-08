@@ -16,9 +16,9 @@ class CreateUnitTable extends Migration
         Schema::create('unit', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('lesson_id')->nullable();
+            $table->string('course_id')->nullable();
             $table->string('zoom_id')->nullable();
-            $table->string('h5p_id')->nullable();
+            $table->string('slide_id')->nullable();
             $table->string('homework_id')->nullable();
             $table->string('test_id')->nullable();
             $table->timestamps();

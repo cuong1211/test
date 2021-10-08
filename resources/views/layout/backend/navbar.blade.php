@@ -22,9 +22,9 @@
                 <ul id="iq-sidebar-toggle" class="iq-menu">
 
                     <li>
-                        <a href="{{ url('/lesson') }}" class="iq-waves-effect" aria-expanded="false"><span
+                        <a href="{{ url('/course') }}" class="iq-waves-effect" aria-expanded="false"><span
                                 class="ripple rippleEffect"></span><i
-                                class="las la-user-tie iq-arrow-left"></i><span>Lesson</span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Course</span><i
                                 class="ri-arrow-right-s-line iq-arrow-right"></i></a>
 
                     </li>
@@ -36,9 +36,9 @@
 
                     </li>
                     <li>
-                        <a href="{{ url('/h5p') }}" class="iq-waves-effect" aria-expanded="false"><span
+                        <a href="{{ url('/slide') }}" class="iq-waves-effect" aria-expanded="false"><span
                                 class="ripple rippleEffect"></span><i
-                                class="las la-user-tie iq-arrow-left"></i><span>H5p</span><i
+                                class="las la-user-tie iq-arrow-left"></i><span>Slide</span><i
                                 class="ri-arrow-right-s-line iq-arrow-right"></i></a>
 
                     </li>
@@ -253,5 +253,5 @@
     </div>
     <!-- TOP Nav Bar END -->
     <!-- Page Content  -->
-    
+
 </div>

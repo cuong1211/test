@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\model\Lesson;
 use App\model\Zoom;
+use App\model\Unit;
 
 class FrontendController extends Controller
 {
@@ -13,17 +14,12 @@ class FrontendController extends Controller
         return view('pages.frontend.home');
     }
     public function getUnit($id){
-        $lesson = json_decode(Lesson::with('zoom')->get());
-        foreach($lesson as $item=>$lesson){
-            $a = json_decode($lesson::find($id),true);
-            $b = json_decode($lesson['zoom']::find($id),true);
-        }
-        dd($lesson);
-        // dd($a);
-        return view('pages.frontend.unit',compact('a','b'));
+        $unit = Unit::find($id);
+        $zoom = Zoom::query()->get();
+        return view('pages.frontend.unit',compact('unit','zoom'));
     }
     public function getLesson(){
-        $lesson = Lesson::query()->get();
-        return view('pages.frontend.lesson',compact('lesson'));
+        $unit = Unit::query()->get();
+        return view('pages.frontend.lesson',compact('unit'));
     }
 }

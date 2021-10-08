@@ -22,7 +22,7 @@
 
                 <div class="course_wrapp col-lg-9 col-md-8 col-sm-12 col-xs-12">
                     <div class="wrapper_course">
-                        @foreach ($lesson as $item)
+                        @foreach ($unit as $item)
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <a href="{{ url('/unit') . '/' . $item->id }}">
                                     <div class="course_block">
@@ -32,7 +32,7 @@
                                         <div class="info_wrap">
                                             <div class="science">
                                                 <div class="course_info">
-                                                    <p>{{ $item->name }}
+                                                    <p>{{ $item->title }}
                                                     </p>
                                                 </div>
                                             </div>

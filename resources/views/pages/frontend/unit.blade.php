@@ -30,177 +30,26 @@
 
                     <div class="dtl_inner last">
                         <div class="dtl_head">
-                            <h1>{{$a['name']}} </h1>
-                            <a type="button" href="{{$b['join_url']}}" class="btn btn-primary">vào lớp</a>
+                            <h1>{{$unit->title}}</h1>
+                            <a type="button" href="{{$unit->zoom->join_url}}" class="btn btn-primary">Vào lớp</a>
                         </div>
                         <div class="dtl_block">
                             <div class="detail_text_wrap">
                                 <div class="info_wrapper">
-                                    <h5>Phần 1</h5>
+                                    <h5>Lý thuyết</h5>
                                     <div class="panel-group" id="accordion">
                                         <div class="panel panel-default">
                                             <div class="panel-heading" id="head_One">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
                                                         href="#ques_one">
-                                                        <i class="fa fa-eyedropper"></i><span>/</span>Experimental
-                                                        techniques
-                                                        <i class="fa fa-plus"></i>
+                                                        <iframe src="{{$unit->slide->link}}" frameborder="0"  width="800" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                                                     </a>
                                                 </h4>
-                                            </div>
-                                            <div id="ques_one" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <ul>
-                                                        <li>
-                                                            <ul>
-                                                                <li>Measurement
-                                                                </li>
-                                                                <li>Criteria
-                                                                    of
-                                                                    purity
-                                                                </li>
-                                                                <li>Methods
-                                                                    of
-                                                                    purification
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" id="head_two">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#ques_two">
-                                                        <i class="fa fa-object-group"></i><span>/</span>Atoms,
-                                                        elements
-                                                        and
-                                                        compounds
-                                                        <i class="fa fa-plus"></i>
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="ques_two" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <ul>
-                                                        <li>
-                                                            <ul>
-                                                                <li>Atomic
-                                                                    structure
-                                                                    and
-                                                                    the
-                                                                    Periodic
-                                                                    Table
-                                                                </li>
-                                                                <li>Bonding:
-                                                                    the
-                                                                    structure
-                                                                    of
-                                                                    matter
-                                                                </li>
-                                                                <li>Ions and
-                                                                    ionic
-                                                                    bonds
-                                                                </li>
-                                                                <li>Molecules
-                                                                    and
-                                                                    covalent
-                                                                    bonds
-                                                                </li>
-                                                                <li>Macromolecules
-                                                                </li>
-                                                                <li>Metallic
-                                                                    bonding
-                                                                    (Extended
-                                                                    candidates
-                                                                    only)
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" id="head_three">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#ques_three">
-                                                        <i class="fa fa-cubes"></i><span>/</span>Stoichiometry
-                                                        <i class="fa fa-plus"></i>
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="ques_three" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <ul>
-                                                        <li>
-                                                            <ul>
-                                                                <li>Stoichiometry
-                                                                </li>
-                                                                <li>The mole
-                                                                    concept
-                                                                    (Extended
-                                                                    candidates
-                                                                    only)
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" id="head_four">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#ques_four">
-                                                        <i class="fa fa-flask"></i><span>/</span>Acids,
-                                                        bases
-                                                        and
-                                                        salts
-                                                        <i class="fa fa-plus"></i>
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="ques_four" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <ul>
-                                                        <li>
-                                                            <ul>
-                                                                <li>The characteristic
-                                                                    properties
-                                                                    of
-                                                                    acids
-                                                                    and
-                                                                    bases
-                                                                </li>
-                                                                <li>Types
-                                                                    of
-                                                                    oxides
-                                                                </li>
-                                                                <li>Preparation
-                                                                    of
-                                                                    salts
-                                                                </li>
-                                                                <li>Identification
-                                                                    of
-                                                                    ions
-                                                                    and
-                                                                    gases
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <h5>Syllabus aims and assessment
-                                        objectives</h5>
+                                    <h5>Bài tập trên lớp</h5>
                                     <div class="panel-group" id="accordion1">
                                         <div class="panel panel-default">
                                             <div class="panel-heading" id="head_One1">
@@ -424,7 +273,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h5>Syllabus Content</h5>
+                                    <h5>Bài tập về nhà</h5>
                                     <div class="panel-group" id="accordion2">
                                         <div class="panel panel-default">
                                             <div class="panel-heading" id="head_One2">
@@ -900,49 +749,7 @@
 
                 <div class="clearfix"></div>
             </div>
-            <div class="aside_wrapper col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                <div class="course_tutor">
-                    <h4>Instructors</h4>
-                    <ul>
-                        <li>
-                            <div class="tutor_img">
-                                <img alt="Leonardo Bonucci" src="images/fal_leonardo_bonucci_s.jpg">
-                            </div>
-                            <div class="tutor_info">
-                                <h5>
-                                    <a href="#">Leonardo Bonucci</a>
-                                    <em>- (P.hd)</em>
-                                </h5>
-                                <p>Chemistry, Physicss, Math.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="tutor_img">
-                                <img alt="Rebeca Addam" src="images/fal_rebeca_addam_s.jpg">
-                            </div>
-                            <div class="tutor_info">
-                                <h5>
-                                    <a href="#">Rebeca Adda</a>
-                                    <em>- (P.hd)</em>
-                                </h5>
-                                <p>Chemistry, Physics.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="tutor_img">
-                                <img alt="Alaxander Louise" src="images/fal_alaxander_louise_s.jpg">
-                            </div>
-                            <div class="tutor_info">
-                                <h5>
-                                    <a href="#">Alaxander Louise</a>
-                                    <em>- (P.hd)</em>
-                                </h5>
-                                <p>Chemistry, Physics, Math.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
 
         </div>
 
