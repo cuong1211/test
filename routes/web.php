@@ -18,12 +18,12 @@ Route::group(['namespace' => 'frontend'], function () {
     Route::get('/home', 'FrontendController@getHome');
     Route::get('/unit/{id}', 'FrontendController@getUnit');
     route::get('/lecture','FrontendController@getLesson');
-
+    route::get('/quiz/{quiz}','FrontendController@getQuiz');
 });
 
 
 route::group(['namespace' => 'backend'], function () {
-    route::get('/admin', 'LessonController@getHome');
+    route::get('/admin');
     //course
     route::get('/course', 'CourseController@getCourse');
     route::get('/createcourse', 'CourseController@getcreateCourse');
@@ -46,17 +46,19 @@ route::group(['namespace' => 'backend'], function () {
 
     //test
     route::get('/test', 'TestController@getTest');
-    route::get('/createtest', 'TestController@getcreateTest');
-    route::post('/createtest', 'TestController@createTest');
+    route::get('/createtest', 'TestController@createTest');
+    route::post('/createtest', 'TestController@postcreateTest');
+    route::get('/detal/{quiz}','TestController@detalTest');
+    route::post('/result/{quiz}','TestController@resultTest');
 
 
 
     route::get('/lienket', function(){
-        $data=App\model\Unit::find(1)->zoom()->get();
+        $data=App\model\Question::find(2)->Quiz()->get();
         dd($data);
     });
     route::get('/lienket2', function(){
-        $data=App\model\Course::find(1)->unit()->get();
+        $data=App\model\CorrectAnswer::find(1)->Answer()->get();
         dd($data);
     });
 });

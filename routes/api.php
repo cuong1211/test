@@ -33,5 +33,5 @@ route::group(['namespace' => 'backend'], function () {
     Route::get('/meetingsupport/{id}', 'ZoomController@getsupport')->where('id', '[0-9]+');
     Route::patch('/meetingsupport/{id}', 'ZoomController@updatesupport')->where('id', '[0-9]+');
     Route::delete('/meetingsupport/{id}', 'ZoomController@deletesupport')->where('id', '[0-9]+');
-    route::get('/test','BackendController@getStorage');
+    
 });

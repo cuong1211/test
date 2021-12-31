@@ -35,4 +35,7 @@ class Unit extends Model
     public function exam(){
         return $this->HasMany('App\model\Exam','unit_id','exam_id');
     }
+    public function quiz(){
+        return $this->hasOne(Quiz::class);
+    }
 }

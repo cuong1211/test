@@ -43,6 +43,15 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group col-sm-6">
+            <label for="uname">Bai tap:</label>
+            <select class="form-control" name="quizzes_id" id="email">
+                @foreach ($quiz as $item)
+                    <option value="{{ $item->id }}">{{ $item->quiz }}</option>
+                @endforeach
+            </select>
+        </div>
+        
           <div class="form-group">
              <button type="submit" class="btn btn-primary">Submit</button>
              <button type="submit" class="btn iq-bg-danger">Cancel</button>
