@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateH5pTable extends Migration
+class CreateCorrectAnswerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateH5pTable extends Migration
      */
     public function up()
     {
-        Schema::create('h5p', function (Blueprint $table) {
+        Schema::create('correct_answers', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('course_id')->nullable();
-            $table->string('lesson_id')->nullable();
-            $table->string('unit_id')->nullable();
-            $table->string('link')->nullable();
+            $table->integer('question_id')->unsigned()->index();
+            $table->integer('answer_id')->unsigned()->index();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateH5pTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h5p');
+        Schema::dropIfExists('correct_answer');
     }
 }

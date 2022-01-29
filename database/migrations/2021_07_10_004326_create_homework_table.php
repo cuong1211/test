@@ -16,8 +16,6 @@ class CreateHomeworkTable extends Migration
         Schema::create('homework', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('course_id')->nullable();
-            $table->string('lesson_id')->nullable();
             $table->string('unit_id')->nullable();
             $table->string('excel')->nullable();
             $table->timestamps();

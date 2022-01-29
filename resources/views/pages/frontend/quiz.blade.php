@@ -1,4 +1,6 @@
-@extends('layout.backend.index')
+@extends('layout.frontend.index')
+
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -29,5 +31,4 @@
         </div>
     </div>
 </div>
-    
 @endsection

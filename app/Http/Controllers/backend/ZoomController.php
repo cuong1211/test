@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 use App\model\Zoom;
 use App\model\ZoomSupport;
 use Illuminate\Support\Facades\Http;
-use App\model\Lesson;
 use App\model\Course;
 
 
@@ -45,10 +44,9 @@ class ZoomController extends Controller
     }
     public function getZoom()
     {
-        $zoom = Zoom::query()->with('course','lesson')->get();
+        $zoom = Zoom::query()->with('course')->get();
         $course = Course::query()->get();
-        $lesson = Lesson::query()->get();
-        return view('pages.backend.zoom.main', compact('zoom','course','lesson'));
+        return view('pages.backend.zoom.main', compact('zoom','course'));
     }
     public function getZoomSupport(){
         $zoomsupport = ZoomSupport::query()->get();
@@ -58,8 +56,7 @@ class ZoomController extends Controller
     public function getCreate()
     {
         $course = Course::query()->latest()->get();
-        $lesson = Lesson::query()->get();
-        return view('pages.backend.zoom.create',compact('course','lesson'));
+        return view('pages.backend.zoom.create',compact('course'));
     }
 
     public function postCreate(Request $request)
@@ -92,9 +89,6 @@ class ZoomController extends Controller
             ]
         ])->body(), true);
         $zoom = Zoom::create([
-            'course_id' => $request->course_id,
-            'lesson_id' => $request->lesson_id,
-            'unit_id' => $request->unit_id,
             'id' => $response['id'],
             'topic' => $response['topic'],
             'type' => $response['type'],
@@ -125,10 +119,10 @@ class ZoomController extends Controller
         //     ],
         // ]);
         return redirect('api/zoom');
-
-
-
-
+    }
+    public function addCourse(request $request, $id){
+        $zoom = Zoom::find($id)->course()->sync($request->course);
+        return redirect('api/zoom');
     }
     public function getCreatesupport()
     {
@@ -204,10 +198,6 @@ class ZoomController extends Controller
             ],
         ]);
         return redirect('api/zoomsupport');
-
-
-
-
     }
     public function get(Request $request, string $id)
     {

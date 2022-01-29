@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateZoomTable extends Migration
+class CreateQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateZoomTable extends Migration
      */
     public function up()
     {
-        Schema::create('zoom', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('topic')->nullable();
-            $table->string('type')->nullable();
-            $table->string('join_url')->nullable();
-            $table->string('start_time')->nullable();
+            $table->integer('quiz_id')->unsigned()->index();
+            $table->string('question');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateZoomTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zoom');
+        Schema::dropIfExists('question');
     }
 }

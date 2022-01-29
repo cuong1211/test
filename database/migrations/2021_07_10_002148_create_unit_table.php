@@ -16,11 +16,11 @@ class CreateUnitTable extends Migration
         Schema::create('unit', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('lesson_id')->nullable();
-            $table->string('zoom_id')->nullable();
-            $table->string('h5p_id')->nullable();
-            $table->string('homework_id')->nullable();
-            $table->string('test_id')->nullable();
+            $table->integer('course_id')->nullable();
+            $table->integer('zoom_id')->nullable();
+            $table->integer('slide_id')->nullable();
+            $table->integer('homework_id')->nullable();
+            $table->integer('quizzes_id')->nullable();
             $table->timestamps();
         });
     }

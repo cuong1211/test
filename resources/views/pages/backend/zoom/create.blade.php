@@ -9,7 +9,7 @@
         <div class="iq-card-body">
             <form class="form-horizontal" action="{{ url('/api/createmeetings') }}" method="POST">
                 @csrf
-                <div class="form-group col-sm-6">
+                {{-- <div class="form-group col-sm-6">
                     <label class="control-label col-sm-2 align-self-center mb-0">khoa hoc:</label>
                     <select class="form-control col-sm-10" name="course_id" id="course_id">
                         @foreach ($course as $item)
@@ -30,7 +30,7 @@
                     <div class="col-sm-10">
                         <input type="number" name="unit_id" class="form-control" id="unit_id" placeholder="Enter type">
                     </div>
-                </div>
+                </div> --}}
                 <div class="form-group row">
                     <label class="control-label col-sm-2 align-self-center mb-0" for="email">Tên phòng</label>
                     <div class="col-sm-10">

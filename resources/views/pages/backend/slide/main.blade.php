@@ -14,7 +14,7 @@
              <div class="iq-card-body">
                 <div id="table" class="table-editable">
                    <span class="table-add float-right mb-3 mr-2">
-                   <a class="btn btn-sm iq-bg-success" href="{{url('/createlesson')}}"><i
+                   <a class="btn btn-sm iq-bg-success" href="{{url('/createslide')}}"><i
                       class="ri-add-fill"><span class="pl-1">Add New</span></i>
                    </a>
                    </span>
@@ -23,10 +23,7 @@
                         <tr>
                             <th>STT</th>
                             <th>ten</th>
-                            <th>khoa hoc</th>
-                            <th>Thời gian</th>
-                            <th>phong zoom</th>
-                            <th>Action</th>
+                            <th>link</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,11 +31,11 @@
                         $count = 1;
 
                         @endphp
-                        @foreach ($lesson as $item)
+                        @foreach ($slide as $item)
                             <tr>
                                 <td>{{$count}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->course->name}}</td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->link}}</td>
 
                                 {{-- <td>
                                  <form action="{{ url('api/meetings').'/'.$item['id'] }}" method="post">

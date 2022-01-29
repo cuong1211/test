@@ -13,9 +13,9 @@ class Course extends Model
       'start_time',
 
     ];
-    public function lesson()
+    public function unit()
     {
-      return $this->hasMany('App\model\Lesson','course_id','id');
+      return $this->hasMany('App\model\Unit','course_id','id');
     }
     public function zoom()
     {
