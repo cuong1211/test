@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Slide;
+use Illuminate\Support\Facades\Aut;
 
 class SlideController extends Controller
 {
@@ -20,6 +21,23 @@ class SlideController extends Controller
             'title'=>$request->title,
             'link'=>$request->link,
         ]);
+        return redirect('slide');
+    }
+    public function getEditSlide($id){
+        $slide = Slide::query()->find($id);
+        return view('pages.backend.slide.edit',compact('slide'));
+    }
+    public function editSlide(request $request,$id){
+        $slide = Slide::query()->find($id);
+        $slide->update([
+            'title'=>$request->title,
+            'link'=>$request->link,
+        ]);
+        return redirect('slide');
+    }
+    public function deleteSlide($id){
+        $slide = Slide::query()->find($id);
+        $slide->delete();
         return redirect('slide');
     }
 }

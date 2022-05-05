@@ -31,7 +31,10 @@
 <link rel="stylesheet" type="text/css" href="css/rev/rev_responsive.css" />
 <link rel="stylesheet" type="text/css" href="css/reset.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+<link rel="stylesheet" href="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/lib/codemirror.css')}}">
+<link rel="stylesheet" href="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/hint/show-hint.css')}}">
+<link rel="stylesheet" href="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/theme/darcula.css')}}">
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/lib/codemirror.js')}}"></script>
 <link
     href='https://fonts.googleapis.com/css?family=Raleway:800,500%7CLato:400,300,400italic,700,700italic,300italic,900italic,900,100,100italic%7CRoboto:400,500,600'
     rel='stylesheet' type='text/css' />
@@ -59,3 +62,12 @@
 <script type="text/javascript" src="js/js-functions.js"></script>
 <script type="text/javascript" src="js/flicker.js"></script>
 <script type="text/javascript" src="js/rev_slider.js"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/hint/show-hint.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/hint/javascript-hint.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/mode/javascript/javascript.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/hint/xml-hint.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/hint/html-hint.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/mode/htmlmixed/htmlmixed.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/edit/closetag.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/mode/xml/xml.js')}}"></script>
+<script src="{{ asset('codemirror/laravel-admin-ext/code-mirror/codemirror-5.40.0/addon/fold/xml-fold.js')}}"></script>

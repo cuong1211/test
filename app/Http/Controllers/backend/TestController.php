@@ -14,7 +14,7 @@ class TestController extends Controller
 {
     public function getTest(){
         $quizzes = Quiz::all();
-
+        
         return view('pages.backend.test.main',compact('quizzes'));
     }
     public function createTest(){
@@ -57,7 +57,7 @@ class TestController extends Controller
     }
     public function detalTest(Quiz $quiz){
            
-        return view('createexam',compact('quiz'));
+        return view('pages.frontend.quizz.detail',compact('quiz'));
     }
     public function resultTest(Request $request){
         $data = $request->all();
@@ -77,6 +77,6 @@ class TestController extends Controller
         }
         $correct_answers_count = count(array_intersect($answers_array, $correct_answers_array_filtered));
 
-        return view('pages.backend.test.result', compact('data','correct_answers_array_filtered', 'answers_array', 'correct_answers_count', 'question_count'));
+        return view('pages.frontend.quizz.result', compact('data','correct_answers_array_filtered', 'answers_array', 'correct_answers_count', 'question_count'));
     }
 }

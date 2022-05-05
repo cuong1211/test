@@ -1,124 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.frontend.index')
+@section('content')
+    <div class="content_wrapper">
+        <div class="container">
+            <h1>ĐỀ BÀI</h1>
+            
+            <form action="{{ url('/createcode') }}" method="POST">
+                <button onclick="run()" class="btn">Run code!</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div style="border: 5px solid gray; height: 600px;">
+                            @csrf
+                            <textarea id="codemirror" class="first" name="title"></textarea>
+                        </div>
+                    </div>
+            </form>
+            <div class="col-md-6 ">
+                <iframe id="code_result" width="100%" style="border: 5px solid gray; height: 600px;">
+                </iframe>
+            </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Html editor</title>
-    {{-- <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-
-        .btn {
-            poistion: fixed;
-            right: 0;
-            padding: 0.4rem;
-            width: 4rem;
-            background: rgb(0, 0, 0);
-            color: gold;
-            font-size: 1rem;
-            outline: none;
-            cursor: pointer;
-            height: 90vh;
-        }
-
-        .btn:hover {
-            color: white;
-            background: blue;
-        }
-
-
-        .main-editor {
-            background: rgba(0, 0, 0, 0.91);
-            display: flex;
-            width: 100%;
-            padding: 1rem;
-            box-shadow: 0 2px 3px black;
-            position: fixed;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            border: 7px solid #36383f;
-        }
-
-        .first {
-            background-color: #ffffff;
-            width: 50%;
-            overflow-x: hidden;
-            overflow-y: auto;
-            white-space: pre;
-            box-shadow: 0 1px 1px rgb(22, 22, 22);
-            outline: none;
-            padding: 0.4rem;
-            height: 90vh;
-        }
-
-        .second {
-            background-color: rgb(255, 255, 255);
-            width: 50%;
-            overflow-y: auto;
-            white-space: pre;
-            right: 0;
-            box-shadow: 0 1px 1px rgb(22, 22, 22);
-            padding: 0.4rem;
-            height: 90vh;
-        }
-
-    </style> --}}
-</head>
-
-<body>
-    <div class="main-editor">
-        @php
-            $count = 1;
-        @endphp
-        @foreach ($y as $item)
-                <a href="{{ url('single').'/'.$item->id }}">{{$item->name}}<br></a>
-                
-            @php
-                $count++;
-            @endphp
-        @endforeach
+        </div>
     </div>
+    </div>
+    <script>
+        var doc = document.getElementById('code_result').contentWindow.document;
+        var html_value;
+        var editor = CodeMirror.fromTextArea(document.querySelector('.first'), {
+            lineNumbers: true,
+            // tabSize: 0,
+            mode: "text/html",
+            // mode: {name: "javascript", globalVars: true},
+            // theme: "darcula",
+            extraKeys: {
+                "Ctrl-Space": "autocomplete"
+            },
 
-    {{-- <script>
-        var element = document.getElementById('code');
-        //  This gives you a string representing that element and its content
-        var html = element.outerHTML;
-        //  This gives you a JSON object that you can send with jQuery.ajax's `data`
-        // option, you can rename the property to whatever you want.
-        var json = JSON.stringify({ html: html});
-
-        //  This gives you a string in JSON syntax of the object above that you can 
-        // send with XMLHttpRequest.
-        console.log(element)
-        const first = document.querySelector(".first");
-        const iframe = document.querySelector("iframe");
-        const btn = document.querySelector("button");
-
-        btn.addEventListener("click", () => {
-            var html = first.textContent;
-            iframe.src = "data:text/html;charset=utf-8," + encodeURI(html);
+            autoCloseTags: true,
         });
 
-
-        first.addEventListener('keyup', () => {
-            var html = first.textContent;
-            iframe.src = "data:text/html;charset=utf-8," + encodeURI(html);
-        })
-
-        first.addEventListener("paste", function(e) {
-            e.preventDefault();
-            var text = e.clipboardData.getData("text/plain");
-            document.execCommand("insertText", false, text);
-        });
-
-    </script> --}}
-</body>
-
-</html>
+        function run() {
+            html_value = editor.getValue();
+            doc.open();
+            doc.write(html_value);
+            doc.close();
+        }
+    </script>
+@endsection

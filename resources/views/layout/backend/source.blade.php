@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- color-customizer -->
-
+    @yield('body')
     <!-- color-customizer END -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

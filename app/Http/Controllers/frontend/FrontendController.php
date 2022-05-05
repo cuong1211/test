@@ -19,6 +19,7 @@ class FrontendController extends Controller
         $zoom = Zoom::query()->get();
         $quizzes = Quiz::all();
         return view('pages.frontend.unit',compact('unit','zoom','quizzes'));
+        
     }
     public function getLesson(){
         $unit = Unit::query()->get();

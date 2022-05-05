@@ -2,7 +2,7 @@
     <!-- Sidebar  -->
     <div class="iq-sidebar">
         <div class="iq-sidebar-logo d-flex justify-content-between">
-            <a href="{{url('/admin')}}" class="header-logo">
+            <a href="{{ url('/admin') }}" class="header-logo">
                 <img src="images/logo.png" class="img-fluid rounded-normal" alt="">
                 <div class="logo-title">
                     <span class="text-danger text-uppercase">NHC<span class="text-primary ml-1">Bakery</span></span>
@@ -111,8 +111,8 @@
                         <li class="nav-item nav-icon">
                             <div class="iq-search-bar">
                                 <form class="search" type="get" action="{{ url('/search') }}">
-                                    <input type="search" name="query" class="textbox"placeholder="Tìm kiếm">
-                                    <button class="btn btn-outline-light" type="submit">Search           </button>
+                                    <input type="search" name="query" class="textbox" placeholder="Tìm kiếm">
+                                    <button class="btn btn-outline-light" type="submit">Search </button>
                                     <div id="response"> </div>
                                 </form>
                             </div>
@@ -192,10 +192,10 @@
                             <div class="iq-card shadow-none m-0">
                                 <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                        <h5 class="mb-0 text-white line-height">Hello Barry Tech</h5>
+                                        <h5 class="mb-0 text-white line-height">Hello {{ Auth::user()->name }}</h5>
                                         <span class="text-white font-size-12">Available</span>
                                     </div>
-                                    <a href="{{url('/')}}" class="iq-sub-card iq-bg-primary-hover">
+                                    <a href="{{ url('/') }}" class="iq-sub-card iq-bg-primary-hover">
                                         <div class="media align-items-center">
                                             <div class="rounded iq-card-icon iq-bg-primary">
                                                 <i class="ri-file-user-line"></i>
@@ -240,8 +240,14 @@
                                         </div>
                                     </a>
                                     <div class="d-inline-block w-100 text-center p-3">
-                                        <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign
+                                        <a class="bg-primary iq-sign-btn" href="{{ route('logout') }}" role="button"
+                                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Sign
                                             out<i class="ri-login-box-line ml-2"></i></a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
                                     </div>
                                 </div>
                             </div>

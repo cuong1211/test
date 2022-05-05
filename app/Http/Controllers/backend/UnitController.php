@@ -12,11 +12,13 @@ use App\model\Quiz;
 class UnitController extends Controller
 {
     public function getUnit(){
-        $unit = Unit::query()->with('course','zoom','slide')->get();
+        $unit = Unit::query()->with('course','zoom','slide','quiz')->get();
         $course = Course::query()->get();
         $zoom = Zoom::query()->get();
         $slide = Slide::query()->get();
-        return view('pages.backend.unit.main',compact('unit','course','zoom','slide'));
+        $quiz = Quiz::query()->get();
+        // dd(json_decode($unit));
+        return view('pages.backend.unit.main',compact('unit','course','zoom','slide',"quiz"));
     }
     public function getcreateUnit(){
         $course = Course::query()->get();
@@ -35,4 +37,29 @@ class UnitController extends Controller
         ]);
         return redirect('unit');
     }
+    public function getEditUnit($id){
+        $unit = Unit::query()->find($id);
+        $course = Course::query()->get();
+        $zoom = Zoom::query()->get();
+        $slide = Slide::query()->get();
+        $quiz= Quiz::query()->get();
+        return view('pages.backend.unit.edit',compact('unit','course','zoom','slide','quiz'));
+    }
+    public function editUnit(request $request,$id){
+        $unit = Unit::query()->find($id);
+        $unit->update([
+            'title'=>$request->title,
+            'course_id'=>$request->course_id,
+            'zoom_id'=>$request->zoom_id,
+            'slide_id'=>$request->slide_id,
+            'quizzes_id'=>$request->quizzes_id,
+        ]);
+        return redirect('unit');
+    }
+    public function deleteUnit($id){
+        $unit = Unit::query()->find($id);
+        $unit->delete();
+        return redirect('unit');
+    }
+    
 }

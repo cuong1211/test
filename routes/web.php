@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use app\model\course;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +33,10 @@ route::group(['namespace' => 'backend'], function () {
     route::get('/unit', 'UnitController@getUnit');
     route::get('/createunit', 'UnitController@getcreateUnit');
     route::post('/createunit', 'UnitController@createUnit');
+    route::get('/editunit/{id}', 'UnitController@getEditUnit');
+    route::post('/editunit/{id}', 'UnitController@editUnit');
+    route::get('/deleteunit/{id}', 'UnitController@deleteUnit');
+    
 
     //slide
     route::get('/slide', 'SlideController@getSlide');
@@ -51,7 +55,10 @@ route::group(['namespace' => 'backend'], function () {
     route::get('/detal/{quiz}','TestController@detalTest');
     route::post('/result/{quiz}','TestController@resultTest');
 
-
+    //code
+    route::get('/code', 'CodeController@getCode');
+    route::get('/createcode', 'CodeController@detailCode');
+    route::post('/createcode', 'CodeController@postCode');
 
     route::get('/lienket', function(){
         $data=App\model\Question::find(2)->Quiz()->get();
@@ -68,3 +75,39 @@ route::group(['namespace' => 'backend'], function () {
 // route::post('/exam','ExamController@postExam');
 // route::get('/createexam','ExamController@createExam');
 // route::post('/createexam','ExamController@postcreateExam');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

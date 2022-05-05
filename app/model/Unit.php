@@ -14,7 +14,8 @@ class Unit extends Model
       'zoom_id',
       'slide_id',
       'homework_id',
-      'test_id',
+      'quizzes_id',
+      'exam_id'
     ];
     public function course()
     {

@@ -42,7 +42,8 @@
                                             <td>{{ $item->course->name}}</td>
                                             <td>{{ $item->zoom->topic}}</td>
                                             <td>{{ $item->slide->title}}<br><a class="btn btn-primary" href="{{$item->slide->link}}" role="button">link</a></td>
-                                            <td>{{ $item->quiz->quiz}}</td>
+                                            <td>{{ $item->quiz->quiz}}<br>
+                                            {{-- <td>{{ $item->quiz->quiz}}</td> --}}
                                             {{-- <td>
                                                 <form action="{{ url('api/meetings') . '/' . $item['id'] }}" method="post">
                                                     @csrf
